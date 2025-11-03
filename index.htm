@@ -1,421 +1,233 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Meta description (longer) -->
-  <meta name="description" content="One-page site for Men’s Mental Health Through Christ—browse portfolio work, read the newsletter, view a resume, and reach out for support grounded in faith and wisdom." />
-  <title>Men’s Mental Health Through Christ — Single Page</title>
-
-  <!-- If your own site does not have a security certificate, use http:// not https:// -->
-  <!-- Example (commented): <link rel="canonical" href="http://your-domain.com/"> -->
-
-  <!-- SAME stylesheet as Home + Resume -->
-  <link href="SiteName.css" rel="stylesheet" type="text/css">
-
-  <!-- Open Graph (optional) -->
-  <meta property="og:title" content="Men’s Mental Health Through Christ — Single Page">
-  <meta property="og:description" content="Explore portfolio items, read the newsletter, and find ways to connect—on one page.">
-  <meta property="og:type" content="website">
-
-  <style>
-    /* ==========================================================================
-       (Original inline CSS preserved exactly)
-       ========================================================================== */
-    html, body { height: 100%; }
-    body {
-      max-width:1000px;
-      margin:auto;
-      line-height:1.6;
-      font-family: Arial, Helvetica, sans-serif;
-      color:#ffffff;
-      background-color:#001f3f;        /* NAVY BLUE */
-      text-align:center;
-    }
-    header {
-      background-image:
-        linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.35)),
-        url('images/Banner.jpg');
-      background-size:cover;
-      background-position:center;
-      padding-top:25%;
-    }
-    header, nav, footer, section, article, aside { display:block; }
-    h1 { color:#ffd700; }
-    blockquote { text-align:justify; margin:1rem auto; max-width:760px; color:#e6e6e6; }
-    blockquote:first-letter { font-size:1.8em; font-weight:bold; }
-    main { padding:16px; }
-    footer { text-align:center; margin:24px 0; color:#e5e7eb; }
-    #wrapper { background-color:transparent; }
-    #container {}
-    .box { border:2px blue solid; }
-    .selected { color:#C0C0C0; }
-
-    nav {
-      text-align:center;
-      font-weight:bold;
-      border:2px #AAA solid;
-      margin:0 0 16px 0;
-      padding:10px 0;
-      background: transparent;
-    }
-    nav ul { list-style:none; margin:0; padding:0; }
-    nav li { display:inline; padding:0 14px; }
-    nav a {
-      display:inline;
-      color:#ffffff;
-      text-decoration:none;
-      transition: color .15s ease, background-color .15s ease;
-    }
-    nav a:hover { color:magenta; background-color:yellow; }
-    nav a[aria-current="page"], nav .selected { text-decoration:underline; }
-
-    a:focus-visible { outline:3px solid #60a5fa; outline-offset:3px; }
-
-    .skip-link {
-      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
-    }
-    .skip-link:focus {
-      position:static; width:auto; height:auto; padding:.5rem 1rem;
-      background:#ffd700; color:#001f3f; border-radius:8px; display:inline-block;
-    }
-
-    .container { max-width:800px; margin:0 auto; }
-
-    .card {
-      background:#ffffff;
-      color:#0f172a;
-      border:1px solid #e2e8f0;
-      border-radius:12px;
-      padding:16px;
-      box-shadow:0 2px 10px rgba(0,0,0,.18);
-      margin:0 0 16px 0;
-    }
-
-    a { color:#ffd700; }
-    .card a { color:#1d4ed8; }
-
-    ul, ol { list-style-position: inside; }
-
-    .bullets { list-style-image:url('images/Point.gif'); }
-
-    .image-row {
-      display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin:16px 0;
-    }
-    .image-row img {
-      width:240px; height:auto;
-      border-radius:8px;
-      box-shadow:0 2px 8px rgba(0,0,0,.35);
-    }
-
-    .back-to-top {
-      position:fixed; right:16px; bottom:16px;
-      display:inline-flex; align-items:center; justify-content:center;
-      width:44px; height:44px; border-radius:999px;
-      background:#2563eb; color:#ffffff; text-decoration:none;
-      box-shadow:0 2px 14px rgba(0,0,0,.35);
-      font-weight:bold;
-    }
-    .back-to-top:hover { background:#1e40af; }
-
-    @media (max-width:900px){
-      .container { max-width:95vw; }
-      .image-row img { width:95vw; max-width:95vw; }
-    }
-    @media (max-width:600px){
-      nav li { padding:0 8px; }
-    }
-
-    @media print {
-      body { max-width:none; margin:0; color:#000; background:#fff; }
-      nav, .back-to-top { display:none !important; }
-      header { padding-top:0; height:auto; background:none; }
-      .container { max-width:none; margin:0 0; padding:0 0; }
-      .card { box-shadow:none; border:1px solid #ccc; break-inside:avoid; }
-      a { color:#000; text-decoration:underline; }
-      a::after { content:" (" attr(href) ")"; font-size:.9em; }
-    }
-  </style>
-
-  <!-- ======= BEGIN: HOMEWORK OVERRIDES (Keeps original intact) ======= -->
-  <style id="hw-overrides">
-    /* HW-REQ-5: th centered + attractive top-row style matching site */
-    th {
-      text-align:center;
-      background:#0b3b7a;     /* deep navy variant for contrast */
-      color:#fff;
-      font-size:1.1rem;
-      padding:10px 12px;
-    }
-
-    /* HW-REQ-6: table border + collapse, matching rubric example */
-    table {
-      border:4px solid #003399;  /* matches provided example */
-      border-collapse:collapse;
-      margin:0 auto;             /* center the table on page */
-      width:100%;
-      max-width:640px;           /* attractive width within card */
-    }
-
-    /* cell borders + padding (no deprecated cellpadding) */
-    td, th {
-      border:1px solid #c7d2fe;  /* light indigo lines inside */
-      padding:10px 12px;
-    }
-
-    /* HW-REQ-7: required field indicator */
-    .required { color:#d00; font-weight:700; }
-
-    /* HW-REQ-8: positioning polish around the table */
-    .table-wrap { padding:8px 4px; }
-  </style>
-  <!-- ======= END: HOMEWORK OVERRIDES ======= -->
+  <meta name="description" content="Responsive portfolio featuring personal, faith-centered images that reflect men’s mental health, connection, and hope. Optimized and mobile-friendly." />
+  <meta name="author" content="Men's Mental Health Recovery Through Christ" />
+  <title>Portfolio — Men’s Mental Health Through Christ</title>
+  <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body id="top">
-<a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="wrapper"><!-- close wrapper -->
 
-<div id="wrapper"><!-- open #wrapper -->
+    <header></header>
 
-  <header></header>
+    <nav role="navigation" aria-label="Primary navigation">
+      <ul>
+        <li><a href="index.htm">Home</a></li>
+        <li><a href="portfolio.htm" aria-current="page"><span class="selected">Portfolio</span></a></li>
+        <li><a href="News.htm">Newsletter</a></li>
+        <li><a href="Resume.htm">Resume</a></li>
+        <li><a href="Contact.htm">Contact</a></li>
+      </ul>
+    </nav>
 
-  <nav role="navigation" aria-label="Primary navigation">
-    <ul>
-      <li><a href="#home" aria-current="page"><span class="selected">Home</span></a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#news">Newsletter</a></li>
-      <li><a href="#resume">Resume</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <main>
+      <div id="container" class="container"><!-- close container -->
 
-  <main id="main-content">
-    <div id="container" class="container"><!-- open #container -->
-
-      <!-- HOME -->
-      <section id="home" aria-label="Home">
-        <h1>Welcome</h1>
-        <article class="card">
-          <p>
-            This single-page site encourages men to seek mental wellness with courage, skill, and faith. Use the
-            navigation above to jump to the Portfolio, Newsletter, Resume, or Contact sections.
-          </p>
-        </article>
-        <article class="card">
-          <h2>Quick Links</h2>
-          <ul>
-            <li><a href="#news">Read the Newsletter</a></li>
-            <li><a href="#portfolio">See the Portfolio</a></li>
-            <li><a href="#contact">Get in Touch</a></li>
-          </ul>
-        </article>
-      </section>
-
-      <!-- PORTFOLIO -->
-      <section id="portfolio" aria-label="Portfolio">
         <h1>Portfolio</h1>
-        <article class="card">
-          <h2>Wellness Brochure (PDF)</h2>
-          <p>A single-page brochure encouraging men to seek care grounded in faith and science.</p>
-          <p><a href="brochure.pdf" download>Download</a></p>
-        </article>
-        <article class="card">
-          <h2>Interactive Reflection (Demo)</h2>
-          <p>A small demo concept: daily verses and journaling prompts.</p>
-          <p><a href="#">View demo</a></p>
-        </article>
-      </section>
 
-      <!-- NEWSLETTER -->
-      <section id="news" aria-label="Newsletter">
-        <h1>Finding the Right Help and Walking by Faith</h1>
+        <section class="card" aria-label="Intro">
+          <p>
+            These photographs reflect genuine moments of faith, family, and renewal —
+            showing how connection and belief play vital roles in men’s mental health.
+            This responsive gallery demonstrates accessibility, consistency, and design standards.
+          </p>
+        </section>
 
-        <article class="card">
-          <p>
-            Men’s mental health is often hidden behind humor, work, or silence. Many men are raised to “push through”
-            rather than speak honestly about pain, fear, or exhaustion. Yet Scripture shows that even David, Elijah, and
-            Paul cried out when their strength was shaken. The Bible never asks men to pretend; it invites them to bring
-            their burdens to the One who already knows them fully. Naming what hurts is not a failure of faith—it is the
-            first step toward healing. Christ does not meet men at the image they project, but at the wound they carry.
-          </p>
-          <p>
-            Walking through mental health struggles with Christ means anchoring identity in Him before circumstances,
-            emotions, or performance. Prayer becomes more than a last resort; it becomes a daily grounding rhythm.
-            Christ-centered counseling can help men understand their emotional patterns, learn practical coping skills,
-            and rebuild relationships through forgiveness and humility. Healing does not erase hardship, but it restores
-            peace in the middle of it. In Christ, men discover that strength is not just standing tall, but standing
-            honest — rooted in grace, guided by wisdom, and never alone.
-          </p>
-        </article>
+        <div id="figureContainer"><!-- close figureContainer -->
+
+          <figure>
+            <img src="images/portfolio1.jpg" alt="Selfie outdoors on sunny day, calm and reflective" />
+            <figcaption>Personal Reflection — taking a peaceful moment outdoors to pray and reset.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="images/portfolio2.jpg" alt="Smiling with mom in bright daylight" />
+            <figcaption>Family Support — leaning on faith and family builds emotional strength.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="images/portfolio3.jpg" alt="Wedding couple standing together smiling" />
+            <figcaption>Covenant — marriage rooted in faith encourages healing and purpose.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="images/portfolio4.jpg" alt="Family group photo with smiles at celebration" />
+            <figcaption>Community — faith-filled fellowship reminds us we are never alone.</figcaption>
+          </figure>
+
+        </div><!-- close figureContainer -->
 
         <blockquote>
           “Cast all your anxiety on Him because He cares for you.” — 1 Peter 5:7
         </blockquote>
 
-        <article class="card">
-          <h2>Start Here</h2>
-          <ul class="bullets">
-            <li>Tell one trusted person what you’re carrying this week.</li>
-            <li>Book an appointment with a counselor who respects your faith.</li>
-            <li>Begin and end your day with a brief prayer and one hopeful verse.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h2>What to Ask a Counselor</h2>
+        <section class="box card" aria-label="Submission Notes">
+          <h2>Submission Notes</h2>
           <ul>
-            <li>“How do you include my values and faith in your work?”</li>
-            <li>“What skills or tools will I practice between sessions?”</li>
-            <li>“How will we know I’m making progress?”</li>
+            <li>Four original, relevant images with alt text and figcaptions.</li>
+            <li>Responsive two–three column layout, centered and no partial images.</li>
+            <li>Same header, navigation, and external stylesheet as all pages.</li>
+            <li>Unique page title, description, and validation-ready HTML5.</li>
           </ul>
-        </article>
+        </section>
 
-        <article class="box card" aria-label="Resources">
-          <h2>Helpful Resources</h2>
-          <ul>
-            <li><a href="http://www.mentalhealth.gov" target="_blank" rel="noopener noreferrer">MentalHealth.gov</a></li>
-            <li>If you or someone you know is in crisis in the U.S., call or text <strong>988</strong> for the Suicide &amp; Crisis Lifeline.</li>
-          </ul>
-        </article>
-      </section>
+        <p><a class="back-to-top-inline" href="#top" title="Back to top" aria-label="Back to top">▲ Back to top</a></p>
 
-      <!-- RESUME -->
-      <section id="resume" aria-label="Resume">
-        <h1>Resume: John Beauchamp</h1>
+      </div><!-- close container -->
+    </main>
 
-        <article class="card">
-          <h2>Education</h2>
-          <ul>
-            <li><a href="https://www.scf.edu/" target="_blank" rel="noopener noreferrer">State College of Florida</a> — Major: Computer Information Technology</li>
-            <li>GPA: 3.8 • Expected Graduation: August 2026 • Honors: Phi Theta Kappa 2025</li>
-          </ul>
-        </article>
+    <footer role="contentinfo">
+      <small>&copy; 2025 Men’s Mental Health Through Christ. All rights reserved.</small>
+      <!-- If no SSL, use http://YourDomain/portfolio.htm -->
+    </footer>
 
-        <article class="card">
-          <h2>Skills</h2>
-          <ul>
-            <li>Asset protection; POS &amp; cash management</li>
-            <li>Effective communication; active listening; customer relations</li>
-            <li>Problem-solving; critical thinking; teamwork &amp; creativity</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h2>Experience</h2>
-          <ul>
-            <li><strong>Produce Department Associate</strong> — Publix, Bradenton, FL (Sep 2025)</li>
-            <li><strong>Squad Member</strong> — MOD Pizza, Scottsdale, AZ (Dec 2022–Jun 2023)</li>
-            <li><strong>Food Service Champion</strong> — Taco Bell, AZ &amp; TX (Nov 2020–Oct 2022)</li>
-            <li><strong>Shift Manager</strong> — Tropical Smoothie, Magnolia, TX (Jan 2018–Oct 2020)</li>
-          </ul>
-        </article>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" aria-label="Contact">
-        <h1>Contact</h1>
-
-        <article class="card">
-          <p>If you or someone you know is in crisis in the U.S., call or text <strong>988</strong> for the Suicide &amp; Crisis Lifeline.</p>
-        </article>
-
-        <!-- ================== HW TABLE (one table only) ================== -->
-        <article class="card table-wrap" aria-labelledby="tbl-title">
-          <h2 id="tbl-title" style="margin-top:0;">Contact Table (Assignment)</h2>
-
-          <!-- HW-REQ-1 to HW-REQ-4: 1 table, 11 rows, first row header with colspan=2 -->
-          <table aria-describedby="tbl-note">
-            <tr>
-              <th colspan="2">Contact (John Beauchamp)</th>
-            </tr>
-            <tr>
-              <td style="text-align:right"><span class="required">*</span> First Name</td>
-              <td>future text box</td>
-            </tr>
-            <tr>
-              <td style="text-align:right"><span class="required">*</span> Last Name</td>
-              <td>future text box</td>
-            </tr>
-            <tr>
-              <td style="text-align:right">City</td>
-              <td>future text box</td>
-            </tr>
-            <tr>
-              <td style="text-align:right">ST</td>
-              <td>future drop down</td>
-            </tr>
-            <tr>
-              <td style="text-align:right">Zip</td>
-              <td>future text box</td>
-            </tr>
-            <tr>
-              <td style="text-align:right"><span class="required">*</span> Email</td>
-              <td>future text box</td>
-            </tr>
-            <tr>
-              <td style="text-align:right">Gender</td>
-              <td>M &nbsp; F</td>
-            </tr>
-            <tr>
-              <td style="text-align:right">Education</td>
-              <td>AS &nbsp; BS</td>
-            </tr>
-            <tr>
-              <td style="text-align:right">Comments</td>
-              <td>future text box</td>
-            </tr>
-            <tr>
-              <td style="text-align:right"> </td>
-              <td>future buttons</td>
-            </tr>
-          </table>
-          <p id="tbl-note" style="margin:.5rem 0 0 0; font-size:.9rem;">
-            <span class="required">*</span> 
-          </p>
-        </article>
-        <!-- ================ END HW TABLE (one table only) ================ -->
-
-        <article class="card" aria-labelledby="form-title">
-          <h2 id="form-title">Send a Message</h2>
-          <form action="#" method="post" aria-describedby="contact-note" novalidate>
-            <div class="image-row" role="group" aria-label="Contact fields">
-              <label for="name">Name
-                <input id="name" name="name" type="text" required />
-              </label>
-              <label for="email">Email
-                <input id="email" name="email" type="email" required />
-              </label>
-            </div>
-            <label for="message" class="box" style="border:0">
-              Message
-              <textarea id="message" name="message" required></textarea>
-            </label>
-            <p id="contact-note"></p>
-            <button class="btn primary" type="submit">Send</button>
-          </form>
-        </article>
-
-        <article class="card">
-          <h2>Direct</h2>
-          <address>
-            Bradenton, FL<br>
-            Phone: <a href="tel:+12815417061">(281) 541-7061</a> / <a href="tel:+13478559860">(347) 855-9860</a><br>
-            Email: <a href="mailto:jbeauchamp0117@gmail.com">jbeauchamp0117@gmail.com</a>
-          </address>
-        </article>
-      </section>
-
-    </div><!-- close #container -->
-  </main>
-
-  <a href="#top" class="back-to-top" aria-label="Back to top" title="Back to top">▲</a>
-
-  <footer role="contentinfo">
-    <small>&copy; 2025 Men’s Mental Health Through Christ. All rights reserved.</small>
-  </footer>
-
-</div><!-- close #wrapper -->
+  </div><!-- close wrapper -->
 </body>
 </html>
+/* ======= Global Layout ======= */
+header, nav, footer, section, article, aside { display:block; }
+
+body {
+  max-width:1000px;
+  margin:auto;
+  padding:0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height:1.6;
+  color:#ffffff;
+  background:#001f3f; /* navy blue background */
+  text-align:center;
+}
+
+/* ======= Header / Banner ======= */
+header {
+  background-image:
+    linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.35)),
+    url('images/Banner.jpg');
+  background-size:cover;
+  background-position:center;
+  padding-top:25%;
+}
+
+/* ======= Main Container ======= */
+.container { max-width:800px; margin:0 auto; }
+
+h1 { color:#ffd700; }
+h2 { color:#ffd700; }
+
+blockquote {
+  text-align:justify;
+  margin:1rem auto;
+  max-width:760px;
+  color:#e6e6e6;
+}
+blockquote:first-letter { font-size:1.8em; font-weight:bold; }
+
+footer {
+  text-align:center;
+  margin:24px 0;
+  color:#e5e7eb;
+}
+
+/* ======= Card ======= */
+.card {
+  background:#ffffff;
+  color:#0f172a;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:16px;
+  margin-bottom:16px;
+  box-shadow:0 2px 12px rgba(0,0,0,.25);
+}
+
+.box { border:2px blue solid; }
+
+/* ======= Navigation ======= */
+nav {
+  text-align:center;
+  font-weight:bold;
+  border:2px #AAA solid;
+  padding:10px 0;
+  margin:0 0 16px 0;
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(0,31,63,0.85);
+  backdrop-filter:saturate(130%) blur(2px);
+}
+
+nav ul { list-style:none; margin:0; padding:0; }
+nav li { display:inline; padding:0 14px; }
+nav a {
+  color:#fff;
+  text-decoration:none;
+  padding:2px 6px;
+  border-radius:6px;
+  transition:color .2s ease, background-color .2s ease;
+}
+nav a:hover {
+  color:magenta;
+  background-color:yellow;
+}
+nav a[aria-current="page"] { text-decoration:underline; }
+.selected { color:#C0C0C0; }
+
+/* ======= Links ======= */
+a { color:#ffd700; }
+a:focus-visible { outline:3px solid #60a5fa; outline-offset:3px; }
+
+/* ======= Portfolio Gallery ======= */
+img { max-width:100%; height:auto; display:block; }
+
+#figureContainer { text-align:center; }
+
+figure {
+  width:320px;
+  display:inline-block;
+  vertical-align:top;
+  margin:15px;
+  text-align:center;
+  background:#fff;
+  color:#0f172a;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
+  overflow:hidden;
+}
+figcaption { padding:10px 12px; }
+
+/* ======= Back to Top Button ======= */
+.back-to-top-inline {
+  display:inline-block;
+  background:#2563eb;
+  color:#fff;
+  text-decoration:none;
+  padding:.45rem .9rem;
+  border-radius:999px;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+.back-to-top-inline:hover { background:#1e40af; }
+
+/* ======= Responsive ======= */
+@media (max-width:900px) {
+  .container { max-width:95vw; }
+}
+@media (min-width:1000px) {
+  body { max-width:1000px; }
+}
+
+/* ======= Print View ======= */
+@media print {
+  body { max-width:none; margin:0; color:#000; background:#fff; }
+  nav, .back-to-top-inline { display:none !important; }
+  header { padding-top:0; background:none; }
+  .container { max-width:none; margin:0; padding:0; }
+  .card { box-shadow:none; border:1px solid #ccc; break-inside:avoid; }
+  a { color:#000; text-decoration:underline; }
+  a::after { content:" (" attr(href) ")"; font-size:.9em; }
+}
+
 
