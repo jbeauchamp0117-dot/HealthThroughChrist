@@ -417,3 +417,143 @@
 </div><!-- close #wrapper -->
 </body>
 </html>
+header, nav, footer, section, article, aside { display:block; }
+
+body {
+  max-width:1000px;
+  margin:auto;
+  padding:0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height:1.6;
+  color:#ffffff;
+  background:#001f3f; /* navy blue background */
+  text-align:center;
+}
+
+/* ======= Header / Banner ======= */
+header {
+  background-image:
+    linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.35)),
+    url('images/Banner.jpg');
+  background-size:cover;
+  background-position:center;
+  padding-top:25%;
+}
+
+/* ======= Main Container ======= */
+.container { max-width:800px; margin:0 auto; }
+
+h1 { color:#ffd700; }
+h2 { color:#ffd700; }
+
+blockquote {
+  text-align:justify;
+  margin:1rem auto;
+  max-width:760px;
+  color:#e6e6e6;
+}
+blockquote:first-letter { font-size:1.8em; font-weight:bold; }
+
+footer {
+  text-align:center;
+  margin:24px 0;
+  color:#e5e7eb;
+}
+
+/* ======= Card ======= */
+.card {
+  background:#ffffff;
+  color:#0f172a;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:16px;
+  margin-bottom:16px;
+  box-shadow:0 2px 12px rgba(0,0,0,.25);
+}
+
+.box { border:2px blue solid; }
+
+/* ======= Navigation ======= */
+nav {
+  text-align:center;
+  font-weight:bold;
+  border:2px #AAA solid;
+  padding:10px 0;
+  margin:0 0 16px 0;
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(0,31,63,0.85);
+  backdrop-filter:saturate(130%) blur(2px);
+}
+
+nav ul { list-style:none; margin:0; padding:0; }
+nav li { display:inline; padding:0 14px; }
+nav a {
+  color:#fff;
+  text-decoration:none;
+  padding:2px 6px;
+  border-radius:6px;
+  transition:color .2s ease, background-color .2s ease;
+}
+nav a:hover {
+  color:magenta;
+  background-color:yellow;
+}
+nav a[aria-current="page"] { text-decoration:underline; }
+.selected { color:#C0C0C0; }
+
+/* ======= Links ======= */
+a { color:#ffd700; }
+a:focus-visible { outline:3px solid #60a5fa; outline-offset:3px; }
+
+/* ======= Portfolio Gallery ======= */
+img { max-width:100%; height:auto; display:block; }
+
+#figureContainer { text-align:center; }
+
+figure {
+  width:320px;
+  display:inline-block;
+  vertical-align:top;
+  margin:15px;
+  text-align:center;
+  background:#fff;
+  color:#0f172a;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
+  overflow:hidden;
+}
+figcaption { padding:10px 12px; }
+
+/* ======= Back to Top Button ======= */
+.back-to-top-inline {
+  display:inline-block;
+  background:#2563eb;
+  color:#fff;
+  text-decoration:none;
+  padding:.45rem .9rem;
+  border-radius:999px;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+.back-to-top-inline:hover { background:#1e40af; }
+
+/* ======= Responsive ======= */
+@media (max-width:900px) {
+  .container { max-width:95vw; }
+}
+@media (min-width:1000px) {
+  body { max-width:1000px; }
+}
+
+/* ======= Print View ======= */
+@media print {
+  body { max-width:none; margin:0; color:#000; background:#fff; }
+  nav, .back-to-top-inline { display:none !important; }
+  header { padding-top:0; background:none; }
+  .container { max-width:none; margin:0; padding:0; }
+  .card { box-shadow:none; border:1px solid #ccc; break-inside:avoid; }
+  a { color:#000; text-decoration:underline; }
+  a::after { content:" (" attr(href) ")"; font-size:.9em; }
+}
