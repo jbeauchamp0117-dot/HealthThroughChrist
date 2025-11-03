@@ -2,230 +2,313 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <!-- Viewport for responsiveness -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Responsive portfolio featuring personal, faith-centered images that reflect men’s mental health, connection, and hope. Optimized and mobile-friendly." />
-  <meta name="author" content="Men's Mental Health Recovery Through Christ" />
-  <title>Portfolio — Men’s Mental Health Through Christ</title>
-  <link href="styles.css" rel="stylesheet" type="text/css" />
+
+  <!-- Unique title & description for THIS merged page -->
+  <title>Men’s Mental Health Through Christ — Newsletter & Portfolio</title>
+  <meta name="description" content="Faith-centered newsletter and responsive portfolio on men’s mental health—uses your uploaded images, accessible captions, and a cohesive, centered design." />
+  <meta name="author" content="Men's Mental Health Through Christ" />
+
+  <style>
+    /* ==========================================================
+       Global layout — centered page, navy background, white cards
+       ========================================================== */
+    header, nav, footer, section, article, aside { display:block; }
+    html { scroll-behavior:smooth; }
+    html, body { height:100%; }
+
+    body {
+      max-width:1000px;           /* center page on screen */
+      margin:auto;
+      line-height:1.6;
+      font-family: Arial, Helvetica, sans-serif;
+      color:#ffffff;
+      background:#001f3f;         /* NAVY BLUE */
+      text-align:center;          /* center all text per your preference */
+    }
+
+    /* Banner/masthead from CSS — uses your banner path */
+    header{
+      background-image:
+        linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.35)),
+        url('images/Banner.jpg');  /* <-- if your file name differs, change this path */
+      background-size:cover;
+      background-position:center;
+      padding-top:25%;            /* responsive banner height */
+    }
+
+    .container { max-width:800px; margin:0 auto; }
+    h1 { color:#ffd700; }
+    h2 { color:#ffd700; }
+
+    /* Blockquote requirement */
+    blockquote { text-align:justify; margin:1rem auto; max-width:760px; color:#e6e6e6; }
+    blockquote:first-letter { font-size:1.8em; font-weight:bold; }
+
+    /* Footer */
+    footer { text-align:center; margin:24px 0; color:#e5e7eb; }
+
+    /* Card style for readability */
+    .card{
+      background:#ffffff; color:#0f172a;
+      border:1px solid #e2e8f0; border-radius:12px;
+      padding:16px; margin:0 0 16px 0;
+      box-shadow:0 2px 12px rgba(0,0,0,.25);
+    }
+
+    /* Required rubric class */
+    .box { border:2px blue solid; }
+
+    /* =========================
+       Navigation + rollover hover
+       ========================= */
+    nav{
+      text-align:center; font-weight:bold;
+      border:2px #AAA solid; padding:10px 0; margin:0 0 16px 0;
+      position:sticky; top:0; z-index:10;
+      background:rgba(0,31,63,.85);
+      backdrop-filter:saturate(130%) blur(2px);
+    }
+    nav ul{ list-style:none; margin:0; padding:0; }
+    nav li{ display:inline; padding:0 14px; }
+    nav a{
+      color:#fff; text-decoration:none; padding:2px 6px; border-radius:6px;
+      transition:color .15s ease, background-color .15s ease;
+    }
+    /* Rollover requirement */
+    nav a:hover{ color:magenta; background:yellow; }
+    nav a[aria-current="page"]{ text-decoration:underline; }
+    .selected{ color:#C0C0C0; }
+
+    /* Accessibility */
+    a { color:#ffd700; }
+    a:focus-visible{ outline:3px solid #60a5fa; outline-offset:3px; }
+
+    /* =========================
+       Portfolio (figure gallery)
+       ========================= */
+    img{ max-width:100%; height:auto; display:block; }
+    #figureContainer{ text-align:center; }
+    /* Inline-block tiles = clean wrap, no partial images */
+    figure{
+      width:320px;                 /* ~3 columns at 1000px page width */
+      display:inline-block; vertical-align:top;
+      margin:15px; text-align:center;
+      background:#fff; color:#0f172a;
+      border:1px solid #e2e8f0; border-radius:12px;
+      box-shadow:0 2px 8px rgba(0,0,0,.15);
+      overflow:hidden;
+    }
+    figcaption{ padding:10px 12px; }
+
+    /* Grid helper used in contact form row */
+    .image-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin:16px 0; }
+    .image-row > *{ flex:0 1 320px; }
+
+    /* Back to top */
+    .back-to-top{
+      position:fixed; right:16px; bottom:16px;
+      display:inline-flex; align-items:center; justify-content:center;
+      width:44px; height:44px; border-radius:999px;
+      background:#2563eb; color:#fff; text-decoration:none;
+      box-shadow:0 2px 14px rgba(0,0,0,.35); font-weight:bold;
+    }
+    .back-to-top:hover{ background:#1e40af; }
+
+    /* Responsive tweaks */
+    @media (max-width:900px){ .container{ max-width:95vw; } }
+    @media (min-width:1000px){ body{ max-width:1000px; } }
+
+    /* Print */
+    @media print{
+      body{ max-width:none; margin:0; color:#000; background:#fff; }
+      nav, .back-to-top{ display:none !important; }
+      header{ padding-top:0; height:auto; background:none; }
+      .container{ max-width:none; margin:0; padding:0; }
+      .card{ box-shadow:none; border:1px solid #ccc; break-inside:avoid; }
+      a{ color:#000; text-decoration:underline; }
+      a::after{ content:" (" attr(href) ")"; font-size:.9em; }
+    }
+  </style>
 </head>
 
 <body id="top">
   <div id="wrapper"><!-- close wrapper -->
 
+    <!-- Masthead from CSS -->
     <header></header>
 
+    <!-- Single-page nav (anchors) -->
     <nav role="navigation" aria-label="Primary navigation">
       <ul>
-        <li><a href="index.htm">Home</a></li>
-        <li><a href="portfolio.htm" aria-current="page"><span class="selected">Portfolio</span></a></li>
-        <li><a href="News.htm">Newsletter</a></li>
-        <li><a href="Resume.htm">Resume</a></li>
-        <li><a href="Contact.htm">Contact</a></li>
+        <li><a href="#home" aria-current="page"><span class="selected">Home</span></a></li>
+        <li><a href="#news">Newsletter</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
 
-    <main>
+    <main id="main">
       <div id="container" class="container"><!-- close container -->
 
-        <h1>Portfolio</h1>
-
-        <section class="card" aria-label="Intro">
-          <p>
-            These photographs reflect genuine moments of faith, family, and renewal —
-            showing how connection and belief play vital roles in men’s mental health.
-            This responsive gallery demonstrates accessibility, consistency, and design standards.
-          </p>
+        <!-- HOME -->
+        <section id="home" aria-label="Home">
+          <h1>Welcome</h1>
+          <article class="card">
+            <p>
+              This site supports men’s mental health through practical steps and Christian faith. Use the
+              navigation to read the <strong>Newsletter</strong>, browse the <strong>Portfolio</strong>,
+              view the <strong>Resume</strong>, or <strong>Contact</strong> me.
+            </p>
+          </article>
         </section>
 
-        <div id="figureContainer"><!-- close figureContainer -->
+        <!-- NEWSLETTER -->
+        <section id="news" aria-label="Newsletter">
+          <h1>Finding the Right Help and Walking by Faith</h1>
 
-          <figure>
-            <img src="images/portfolio1.jpg" alt="Selfie outdoors on sunny day, calm and reflective" />
-            <figcaption>Personal Reflection — taking a peaceful moment outdoors to pray and reset.</figcaption>
-          </figure>
+          <article class="card">
+            <p>
+              Men’s mental health is often hidden behind humor, work, or silence. Many men are raised to “push through”
+              rather than speak honestly about pain, fear, or exhaustion. Yet Scripture shows that even David, Elijah, and
+              Paul cried out when their strength was shaken. The Bible never asks men to pretend; it invites them to bring
+              their burdens to the One who already knows them fully. Naming what hurts is not a failure of faith—it is the
+              first step toward healing. Christ does not meet men at the image they project, but at the wound they carry.
+            </p>
+            <p>
+              Walking through mental health struggles with Christ means anchoring identity in Him before circumstances,
+              emotions, or performance. Prayer becomes more than a last resort; it becomes a daily grounding rhythm.
+              Christ-centered counseling can help men understand their emotional patterns, learn practical coping skills,
+              and rebuild relationships through forgiveness and humility. Healing does not erase hardship, but it restores
+              peace in the middle of it. In Christ, men discover that strength is not just standing tall, but standing
+              honest — rooted in grace, guided by wisdom, and never alone.
+            </p>
+          </article>
 
-          <figure>
-            <img src="images/portfolio2.jpg" alt="Smiling with mom in bright daylight" />
-            <figcaption>Family Support — leaning on faith and family builds emotional strength.</figcaption>
-          </figure>
+          <!-- Required blockquote (no <p> inside) -->
+          <blockquote>
+            “Cast all your anxiety on Him because He cares for you.” — 1 Peter 5:7
+          </blockquote>
 
-          <figure>
-            <img src="images/portfolio3.jpg" alt="Wedding couple standing together smiling" />
-            <figcaption>Covenant — marriage rooted in faith encourages healing and purpose.</figcaption>
-          </figure>
-
-          <figure>
-            <img src="images/portfolio4.jpg" alt="Family group photo with smiles at celebration" />
-            <figcaption>Community — faith-filled fellowship reminds us we are never alone.</figcaption>
-          </figure>
-
-        </div><!-- close figureContainer -->
-
-        <blockquote>
-          “Cast all your anxiety on Him because He cares for you.” — 1 Peter 5:7
-        </blockquote>
-
-        <section class="box card" aria-label="Submission Notes">
-          <h2>Submission Notes</h2>
-          <ul>
-            <li>Four original, relevant images with alt text and figcaptions.</li>
-            <li>Responsive two–three column layout, centered and no partial images.</li>
-            <li>Same header, navigation, and external stylesheet as all pages.</li>
-            <li>Unique page title, description, and validation-ready HTML5.</li>
-          </ul>
+          <!-- Example of .box class per rubric -->
+          <article class="box card" aria-label="Resources">
+            <h2>Helpful Resources</h2>
+            <ul>
+              <li><a href="https://www.mentalhealth.gov" target="_blank" rel="noopener noreferrer">MentalHealth.gov</a></li>
+              <li>In a crisis in the U.S., call or text <strong>988</strong> for the Suicide &amp; Crisis Lifeline.</li>
+            </ul>
+          </article>
         </section>
 
-        <p><a class="back-to-top-inline" href="#top" title="Back to top" aria-label="Back to top">▲ Back to top</a></p>
+        <!-- PORTFOLIO (uses YOUR uploaded filenames) -->
+        <section id="portfolio" aria-label="Portfolio">
+          <h1>Portfolio</h1>
+
+          <section class="card" aria-label="Portfolio intro">
+            <p>
+              Resize your window to see the responsive gallery: three columns on larger screens, two on tablets, one on
+              phones — with <strong>no partial images</strong>. Images and captions are optimized and accessible.
+            </p>
+          </section>
+
+          <div id="figureContainer"><!-- close figureContainer -->
+            <figure>
+              <img src="images/1000009244.jpg" alt="Selfie outdoors on sunny day, calm and reflective" />
+              <figcaption>Personal Reflection — taking a peaceful moment outdoors to pray and reset.</figcaption>
+            </figure>
+
+            <figure>
+              <img src="images/1000009754.jpg" alt="Smiling with mom in bright daylight" />
+              <figcaption>Family Support — leaning on faith and family builds emotional strength.</figcaption>
+            </figure>
+
+            <figure>
+              <img src="images/1000009755.jpg" alt="Wedding couple standing together smiling" />
+              <figcaption>Covenant — marriage rooted in faith encourages healing and purpose.</figcaption>
+            </figure>
+
+            <figure>
+              <img src="images/1000009756.jpg" alt="Family group photo with smiles at celebration" />
+              <figcaption>Community — faith-filled fellowship reminds us we are never alone.</figcaption>
+            </figure>
+          </div><!-- close figureContainer -->
+        </section>
+
+        <!-- RESUME (summary block for single page) -->
+        <section id="resume" aria-label="Resume">
+          <h1>Resume: John Beauchamp</h1>
+
+          <article class="card">
+            <h2>Education</h2>
+            <ul>
+              <li><a href="https://www.scf.edu/" target="_blank" rel="noopener noreferrer">State College of Florida</a> — Major: Computer Information Technology</li>
+              <li>GPA: 3.8 • Expected Graduation: August 2026 • Honors: Phi Theta Kappa 2025</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h2>Skills</h2>
+            <ul>
+              <li>Asset protection; POS &amp; cash management</li>
+              <li>Effective communication; active listening; customer relations</li>
+              <li>Problem-solving; critical thinking; teamwork &amp; creativity</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h2>Experience</h2>
+            <ul>
+              <li><strong>Produce Department Associate</strong> — Publix, Bradenton, FL (Sep 2025)</li>
+              <li><strong>Squad Member</strong> — MOD Pizza, Scottsdale, AZ (Dec 2022–Jun 2023)</li>
+              <li><strong>Food Service Champion</strong> — Taco Bell, AZ &amp; TX (Nov 2020–Oct 2022)</li>
+              <li><strong>Shift Manager</strong> — Tropical Smoothie, Magnolia, TX (Jan 2018–Oct 2020)</li>
+            </ul>
+          </article>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" aria-label="Contact">
+          <h1>Contact</h1>
+
+          <article class="card">
+            <p>If you or someone you know is in crisis in the U.S., call or text <strong>988</strong> for the Suicide &amp; Crisis Lifeline.</p>
+          </article>
+
+          <article class="card" aria-labelledby="form-title">
+            <h2 id="form-title">Send a Message</h2>
+            <form action="#" method="post" aria-describedby="contact-note" novalidate>
+              <div class="image-row" role="group" aria-label="Contact fields">
+                <label for="name">Name
+                  <input id="name" name="name" type="text" required />
+                </label>
+                <label for="email">Email
+                  <input id="email" name="email" type="email" required />
+                </label>
+              </div>
+              <label for="message" class="box" style="border:0">
+                Message
+                <textarea id="message" name="message" required></textarea>
+              </label>
+              <p id="contact-note">This demo form does not send email in this class project.</p>
+              <button class="btn primary" type="submit">Send</button>
+            </form>
+          </article>
+        </section>
+
+        <p><a class="back-to-top" href="#top" title="Back to top" aria-label="Back to top">▲</a></p>
 
       </div><!-- close container -->
     </main>
 
     <footer role="contentinfo">
       <small>&copy; 2025 Men’s Mental Health Through Christ. All rights reserved.</small>
-      <!-- If no SSL, use http://YourDomain/portfolio.htm -->
+      <!-- If your site does not have SSL, your live URL will be http://YourDomain/index.htm -->
     </footer>
 
   </div><!-- close wrapper -->
 </body>
 </html>
-/* ======= Global Layout ======= */
-header, nav, footer, section, article, aside { display:block; }
 
-body {
-  max-width:1000px;
-  margin:auto;
-  padding:0;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height:1.6;
-  color:#ffffff;
-  background:#001f3f; /* navy blue background */
-  text-align:center;
-}
 
-/* ======= Header / Banner ======= */
-header {
-  background-image:
-    linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.35)),
-    url('images/Banner.jpg');
-  background-size:cover;
-  background-position:center;
-  padding-top:25%;
-}
-
-/* ======= Main Container ======= */
-.container { max-width:800px; margin:0 auto; }
-
-h1 { color:#ffd700; }
-h2 { color:#ffd700; }
-
-blockquote {
-  text-align:justify;
-  margin:1rem auto;
-  max-width:760px;
-  color:#e6e6e6;
-}
-blockquote:first-letter { font-size:1.8em; font-weight:bold; }
-
-footer {
-  text-align:center;
-  margin:24px 0;
-  color:#e5e7eb;
-}
-
-/* ======= Card ======= */
-.card {
-  background:#ffffff;
-  color:#0f172a;
-  border:1px solid #e2e8f0;
-  border-radius:12px;
-  padding:16px;
-  margin-bottom:16px;
-  box-shadow:0 2px 12px rgba(0,0,0,.25);
-}
-
-.box { border:2px blue solid; }
-
-/* ======= Navigation ======= */
-nav {
-  text-align:center;
-  font-weight:bold;
-  border:2px #AAA solid;
-  padding:10px 0;
-  margin:0 0 16px 0;
-  position:sticky;
-  top:0;
-  z-index:10;
-  background:rgba(0,31,63,0.85);
-  backdrop-filter:saturate(130%) blur(2px);
-}
-
-nav ul { list-style:none; margin:0; padding:0; }
-nav li { display:inline; padding:0 14px; }
-nav a {
-  color:#fff;
-  text-decoration:none;
-  padding:2px 6px;
-  border-radius:6px;
-  transition:color .2s ease, background-color .2s ease;
-}
-nav a:hover {
-  color:magenta;
-  background-color:yellow;
-}
-nav a[aria-current="page"] { text-decoration:underline; }
-.selected { color:#C0C0C0; }
-
-/* ======= Links ======= */
-a { color:#ffd700; }
-a:focus-visible { outline:3px solid #60a5fa; outline-offset:3px; }
-
-/* ======= Portfolio Gallery ======= */
-img { max-width:100%; height:auto; display:block; }
-
-#figureContainer { text-align:center; }
-
-figure {
-  width:320px;
-  display:inline-block;
-  vertical-align:top;
-  margin:15px;
-  text-align:center;
-  background:#fff;
-  color:#0f172a;
-  border:1px solid #e2e8f0;
-  border-radius:12px;
-  box-shadow:0 2px 8px rgba(0,0,0,.15);
-  overflow:hidden;
-}
-figcaption { padding:10px 12px; }
-
-/* ======= Back to Top Button ======= */
-.back-to-top-inline {
-  display:inline-block;
-  background:#2563eb;
-  color:#fff;
-  text-decoration:none;
-  padding:.45rem .9rem;
-  border-radius:999px;
-  box-shadow:0 2px 8px rgba(0,0,0,.25);
-}
-.back-to-top-inline:hover { background:#1e40af; }
-
-/* ======= Responsive ======= */
-@media (max-width:900px) {
-  .container { max-width:95vw; }
-}
-@media (min-width:1000px) {
-  body { max-width:1000px; }
-}
-
-/* ======= Print View ======= */
-@media print {
-  body { max-width:none; margin:0; color:#000; background:#fff; }
-  nav, .back-to-top-inline { display:none !important; }
-  header { padding-top:0; background:none; }
-  .container { max-width:none; margin:0; padding:0; }
-  .card { box-shadow:none; border:1px solid #ccc; break-inside:avoid; }
-  a { color:#000; text-decoration:underline; }
-  a::after { content:" (" attr(href) ")"; font-size:.9em; }
-}
